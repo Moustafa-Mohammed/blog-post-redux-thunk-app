@@ -1,4 +1,4 @@
-import PostList from "../songList/PostList";
+import PostList from "../postList/PostList";
 
 function App() {
   return (
