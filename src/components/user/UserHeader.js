@@ -3,22 +3,19 @@ import { connect } from "react-redux";
 import { fetchUser } from "../../actions";
 
 function UserHeader(props) {
-  console.log(props);
   useEffect(() => {
     props.fetchUser(props.userId);
   }, []);
 
-  const user = props.users.find((user) => user.id === props.userId);
-
-  if (!user) {
+  if (!props.user) {
     return <div></div>;
   }
-  return <div className="post-author">{user.name}</div>;
+  return <div className="post-author">{props.user.name}</div>;
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
   return {
-    users: state.users,
+    user: state.users.find((user) => user.id === props.userId),
   };
 };
 
