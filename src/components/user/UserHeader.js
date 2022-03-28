@@ -3,11 +3,23 @@ import { connect } from "react-redux";
 import { fetchUser } from "../../actions";
 
 function UserHeader(props) {
-  console.log(props.userId);
+  console.log(props);
   useEffect(() => {
     props.fetchUser(props.userId);
   }, []);
-  return <div className="post-author">UserHeader</div>;
+
+  const user = props.users.find((user) => user.id === props.userId);
+
+  if (!user) {
+    return <div></div>;
+  }
+  return <div className="post-author">{user.name}</div>;
 }
 
-export default connect(null, { fetchUser })(UserHeader);
+const mapStateToProps = (state) => {
+  return {
+    users: state.users,
+  };
+};
+
+export default connect(mapStateToProps, { fetchUser })(UserHeader);
