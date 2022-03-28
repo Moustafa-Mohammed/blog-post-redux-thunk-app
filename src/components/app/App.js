@@ -1,8 +1,10 @@
 import PostList from "../postList/PostList";
 
+import "./app.css";
+
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <PostList />
     </div>
   );

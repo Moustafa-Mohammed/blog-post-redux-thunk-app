@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchPosts } from "../../actions";
+import PostDetails from "../post/PostDetails";
 
 function PostList(props) {
   useEffect(() => {
@@ -8,15 +9,7 @@ function PostList(props) {
   }, []);
   const renderList = () => {
     return props.posts.map((post) => {
-      return (
-        <div className="post" key={post.id}>
-          <div className="post-author"></div>
-          <div className="post-content">
-            <h3>{post.title}</h3>
-            <p>{post.body}</p>
-          </div>
-        </div>
-      );
+      return <PostDetails key={post.id} post={post} />;
     });
   };
 
