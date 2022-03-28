@@ -3,11 +3,17 @@
   flex-direction: row;
   align-items: center;
   margin-bottom: 1rem;
-  background-color: #232529;
+  background-color: #282a36;
   padding: 1rem;
-  border-radius: 8px;
+  border-top-right-radius: 8px;
+  border-left: 3px solid #35383f;
+  border-bottom: 1px solid #35383f;
 }
 
-.post-author {
+.user-photo {
   margin-right: 1rem;
+}
+
+.post-title {
+  color: #f1fa8c;
 }
